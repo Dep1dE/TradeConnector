@@ -1,41 +1,41 @@
-﻿using System.ComponentModel.Design;
+﻿namespace TradeConnector.Core.Models;
 
-namespace TradeConnector.Core.Models;
-
-public class Ticker
+/// <summary>
+/// For trading pairs, ex. tBTCUSD
+/// </summary>
+public class PairTicker
 {
-    public string Pair { get; set; } = string.Empty;
+    public string Symbol { get; set; } = string.Empty; // Cимвольное обозначение валютной пары
 
     /// <summary>
-    /// Цена последней самой высокой ставки
+    /// Цена последней самой высокой ставки покупки(BID)
     /// </summary>
-    public decimal LastHighPrice { get; set; }
+    public decimal Bid { get; set; }
 
     /// <summary>
-    /// Сумма из 25 самых высоких размеров ставок
+    /// Сумма из 25 самых высоких размеров ставок покупок(BID)
     /// </summary>
-    public decimal HighSumPrice { get; set; }
+    public decimal BidSize { get; set; }
 
     /// <summary>
-    /// Цена последней самой низкой ставки
+    /// Цена последней самой низкой ставки продажи(ASK)
     /// </summary>
-    public decimal LastLowPrice { get; set; }   
+    public decimal Ask { get; set; }
 
     /// <summary>
-    /// Сумма из 25 самых низких размеров ставок
+    /// Сумма из 25 самых низких размеров ставок продаж(ASK)
     /// </summary>
-    public decimal LowSumPrice { get; set; }
-
+    public decimal AskSize { get; set; }
 
     /// <summary>
     /// НА СКОЛЬКО изменилась последняя цена со вчерашнего дня
     /// </summary>
-    public decimal AverageDailyChange { get; set; }
+    public decimal DailyChange { get; set; }
 
     /// <summary>
     /// Относительное изменение цены со вчерашнего дня (*100 для процентного изменения)
     /// </summary>
-    public decimal DaileChangeRelativite { get; set; }
+    public decimal DaileChangeRelative { get; set; }
 
     /// <summary>
     /// Цена последней ставки
@@ -57,9 +57,5 @@ public class Ticker
     /// </summary>
     public decimal Volume { get; set; }
 
-    /// <summary>
-    /// Время
-    /// </summary>
-    public DateTimeOffset OpenTime { get; set; }
 }
 
