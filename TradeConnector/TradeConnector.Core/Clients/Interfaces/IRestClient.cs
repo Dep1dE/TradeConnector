@@ -4,9 +4,12 @@ namespace TradeConnector.Core.Clients.Interfaces.Bitfinex;
 
 public interface IRestClient
 {
-    Task<IEnumerable<Trade>> GetTradesAsync(string pair, int maxCount);
-    Task<IEnumerable<Candle>> GetCandleSeriesAsync(string pair, int periodInSec,
+    Task<IEnumerable<PairTrade>> GetPairTradesAsync(string pair, int maxCount);
+    Task<IEnumerable<CurrencyTrade>> GetCurrencyTradesAsync(string currency, int maxCount);
+
+    Task<IEnumerable<Candle>> GetCandleSeriesAsync(string symbol, int periodInMin,
         DateTimeOffset? from, DateTimeOffset? to = null, long? count = 0);
-    Task<PairTicker> GetTickerAsync(string pair, int maxCount);
+    Task<PairTicker> GetPairTickerAsync(string pair);
+    Task<CurrencyTicker> GetCurrencyTickerAsync(string currency);
 
 }
