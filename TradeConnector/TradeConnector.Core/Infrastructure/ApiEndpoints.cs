@@ -1,6 +1,6 @@
 ﻿namespace TradeConnector.Core.Infrastructure;
 
-public class ApiEndpoints
+public static class ApiEndpoints
 {
     public const string RestBaseUrl = "https://api-pub.bitfinex.com/v2";
     public const string WebSocketBaseUrl = "wss://api-pub.bitfinex.com/ws/2";
