@@ -1,0 +1,12 @@
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\bin\Debug\net8.0\TradeConnector.Core.deps.json
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\bin\Debug\net8.0\TradeConnector.Core.dll
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\bin\Debug\net8.0\TradeConnector.Core.pdb
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\TradeConnector.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\TradeConnector.Core.AssemblyInfoInputs.cache
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\TradeConnector.Core.AssemblyInfo.cs
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\TradeConnector.Core.csproj.CoreCompileInputs.cache
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\TradeConnector.Core.sourcelink.json
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\TradeConnector.Core.dll
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\refint\TradeConnector.Core.dll
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\TradeConnector.Core.pdb
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\ref\TradeConnector.Core.dll
