@@ -8,7 +8,7 @@ public static class ApiEndpoints
     public static string GetCurrencyTrades(string currency, int maxCount) => $"{RestBaseUrl}/trades/{currency}/hist?limit={maxCount}";
     public static string GetPairTrades(string pair, int maxCount) => $"{RestBaseUrl}/trades/{pair}/hist?limit={maxCount}";
     public static string GetCurrencyTicker(string currency) => $"{RestBaseUrl}/tickers?symbols={currency}";
-    public static string GetPairTicker(string pair) => $"{RestBaseUrl}/trades/?symbols={pair}";
+    public static string GetPairTicker(string pair) => $"{RestBaseUrl}/tickers/?symbols={pair}";
     public static string GetCandleSeries(string symbol, int periodInMin, DateTimeOffset? from = null, DateTimeOffset? to = null, long? count = 0)
     {
         string timeframe = periodInMin switch
