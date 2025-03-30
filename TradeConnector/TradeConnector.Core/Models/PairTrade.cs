@@ -10,11 +10,13 @@ public class PairTrade
     /// <summary>
     /// Цена трейда
     /// </summary>
+    [JsonArrayIndex(3)]
     public decimal Price { get; set; }
 
     /// <summary>
     /// Объем трейда
     /// </summary>
+    [JsonArrayIndex(2)]
     public decimal Amount { get; set; }
 
     /// <summary>
@@ -25,12 +27,16 @@ public class PairTrade
     /// <summary>
     /// Время трейда
     /// </summary>
-    public DateTimeOffset Time { get; set; }
+    [JsonArrayIndex(1)]
+    public long TimestampMs { get; set; }
+    public DateTimeOffset Time => DateTimeOffset.FromUnixTimeMilliseconds(TimestampMs);
+    // Преобразование миллисекунд в DateTimeOffset
 
     /// <summary>
     /// Id трейда
     /// </summary>
-    public Guid Id { get; set; }
+    [JsonArrayIndex(0)]
+    public int Id { get; set; }
 }
 
 /// <summary>

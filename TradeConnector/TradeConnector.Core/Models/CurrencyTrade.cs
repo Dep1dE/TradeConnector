@@ -10,16 +10,19 @@ public class CurrencyTrade
     /// <summary>
     /// Ставка, по которой произошел трейд
     /// </summary>
+    [JsonArrayIndex(3)]
     public decimal Rate { get; set; }
 
     /// <summary>
     /// Количество времени, в течение которого был произведен трейд
     /// </summary>
+    [JsonArrayIndex(4)]
     public int Period { get; set; }
 
     /// <summary>
     /// Объем трейда
     /// </summary>
+    [JsonArrayIndex(2)]
     public decimal Amount { get; set; }
 
     /// <summary>
@@ -30,12 +33,16 @@ public class CurrencyTrade
     /// <summary>
     /// Время трейда
     /// </summary>
-    public DateTimeOffset Time { get; set; }
+    [JsonArrayIndex(1)]
+    public long TimestampMs { get; set; }
+    public DateTimeOffset Time => DateTimeOffset.FromUnixTimeMilliseconds(TimestampMs);
+    // Преобразование миллисекунд в DateTimeOffset
 
     /// <summary>
     /// Id трейда
     /// </summary>
-    public Guid Id { get; set; }
+    [JsonArrayIndex(0)]
+    public int Id { get; set; }
 }
 
 /// <summary>

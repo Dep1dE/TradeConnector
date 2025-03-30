@@ -10,32 +10,40 @@ public class Candle
     /// <summary>
     /// Цена открытия
     /// </summary>
+    [JsonArrayIndex(1)]
     public int OpenPrice { get; set; }
 
     /// <summary>
     /// Цена закрытия
     /// </summary>
+    [JsonArrayIndex(2)]
     public int ClosePrice { get; set; }
 
     /// <summary>
     /// Максимальная цена
     /// </summary>
+    [JsonArrayIndex(3)]
     public int HighPrice { get; set; }
 
     /// <summary>
     /// Минимальная цена
     /// </summary>
+    [JsonArrayIndex(4)]
     public int LowPrice { get; set; }
 
     /// <summary>
     /// Объём символов, торгуемых в течение таймфрейма
     /// </summary>
+    [JsonArrayIndex(5)]
     public decimal Volume { get; set; }
 
     /// <summary>
     /// Время
     /// </summary>
-    public DateTimeOffset OpenTime { get; set; }
+    [JsonArrayIndex(0)]
+    public long TimestampMs { get; set; }
+    public DateTimeOffset OpenTime => DateTimeOffset.FromUnixTimeSeconds(TimestampMs);
+    // Преобразование миллисекунд в DateTimeOffset
 }
 
 /// <summary>
