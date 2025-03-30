@@ -22,7 +22,7 @@ public class PairTrade
     /// <summary>
     /// Направление (buy/sell)
     /// </summary>
-    public string Side { get; set; } = string.Empty;
+    public string Side => Amount > 0 ? "buy" : "sell";
 
     /// <summary>
     /// Время трейда
