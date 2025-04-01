@@ -11,35 +11,37 @@ public class RestClient: IRestClient
     {
         _httpClient = httpClient;
     }
-    private async Task<T> GetAsync<T>(string endpoint)
-    {
-        var response = await _httpClient.GetStringAsync(endpoint);
-        return JsonHelper.Deserialize<T>(response);
-    }
+
     public async Task<IEnumerable<PairTrade>> GetPairTradesAsync(string pair, int maxCount)
     {
         var endpoint = ApiEndpoints.GetPairTrades(pair, maxCount);
-        return await GetAsync<IEnumerable<PairTrade>>(endpoint);
+        var response = await _httpClient.GetStringAsync(endpoint);
+        return JsonHelper.Deserialize<PairTrade>(response);
     }
     public async Task<IEnumerable<CurrencyTrade>> GetCurrencyTradesAsync(string currency, int maxCount)
     {
         var endpoint = ApiEndpoints.GetCurrencyTrades(currency, maxCount);
-        return await GetAsync<IEnumerable<CurrencyTrade>>(endpoint);
+        var response = await _httpClient.GetStringAsync(endpoint);
+        return JsonHelper.Deserialize<CurrencyTrade>(response);
     }
     public async Task<IEnumerable<Candle>> GetCandleSeriesAsync(string symbol, int periodInMin,
             DateTimeOffset? from, DateTimeOffset? to = null, long? count = 0)
     {
         var endpoint = ApiEndpoints.GetCandleSeries(symbol, periodInMin, from, to, count);
-        return await GetAsync<IEnumerable<Candle>>(endpoint);
+        var response = await _httpClient.GetStringAsync(endpoint);
+        return JsonHelper.Deserialize<Candle>(response);
     }
-    public async Task<PairTicker> GetPairTickerAsync(string pair)
+    public async Task<IEnumerable<PairTicker>> GetPairTickerAsync(string pair)
     {
         var endpoint = ApiEndpoints.GetPairTicker(pair);
-        return await GetAsync<PairTicker>(endpoint);
+        var response = await _httpClient.GetStringAsync(endpoint);
+        return JsonHelper.Deserialize<PairTicker>(response);
     }
-    public async Task<CurrencyTicker> GetCurrencyTickerAsync(string currency)
+    public async Task<IEnumerable<CurrencyTicker>> GetCurrencyTickerAsync(string currency)
     {
         var endpoint = ApiEndpoints.GetCurrencyTicker(currency);
-        return await GetAsync<CurrencyTicker>(endpoint);
+        var response = await _httpClient.GetStringAsync(endpoint);
+        return JsonHelper.Deserialize<CurrencyTicker>(response);
     }
+
 }
