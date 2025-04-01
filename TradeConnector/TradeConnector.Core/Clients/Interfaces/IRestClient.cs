@@ -9,7 +9,7 @@ public interface IRestClient
 
     Task<IEnumerable<Candle>> GetCandleSeriesAsync(string symbol, int periodInMin,
         DateTimeOffset? from, DateTimeOffset? to = null, long? count = 0);
-    Task<PairTicker> GetPairTickerAsync(string pair);
-    Task<CurrencyTicker> GetCurrencyTickerAsync(string currency);
+    Task<IEnumerable<PairTicker>> GetPairTickerAsync(string pair);
+    Task<IEnumerable<CurrencyTicker>> GetCurrencyTickerAsync(string currency);
 
 }
