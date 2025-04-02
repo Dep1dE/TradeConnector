@@ -39,13 +39,14 @@ public class RestClient: IRestClient
     {
         var endpoint = ApiEndpoints.GetPairTicker(pair);
         var response = await _httpClient.GetStringAsync(endpoint);
-        return JsonHelper.Deserialize<PairTicker>(response);
+        var pairTickers = JsonHelper.Deserialize<PairTicker>(response);
+        return pairTickers.Select(ticker => { ticker.Symbol = pair.Substring(1); return ticker; });
     }
     public async Task<IEnumerable<CurrencyTicker>> GetCurrencyTickerAsync(string currency)
     {
         var endpoint = ApiEndpoints.GetCurrencyTicker(currency);
         var response = await _httpClient.GetStringAsync(endpoint);
-        return JsonHelper.Deserialize<CurrencyTicker>(response);
+        var currencyTickers = JsonHelper.Deserialize<CurrencyTicker>(response);
+        return currencyTickers.Select(ticker => { ticker.Symbol = currency.Substring(1); return ticker; }); ;
     }
-
 }
