@@ -1,61 +1,63 @@
-﻿using System.Net.WebSockets;
+﻿using Newtonsoft.Json;
+using System.Net.WebSockets;
 using System.Text;
+using TradeConnector.Core.Infrastructure.Interfaces;
 
-namespace TradeConnector.Core.Infrastructure;
-
-public class WebSocketHelper
+namespace TradeConnector.Core.Infrastructure
 {
-    private readonly ClientWebSocket _webSocket = new();
-    private readonly Uri _uri;
-    public event Action<string>? OnMessageReceived;
-    public event Action? OnConnected;
-    public event Action? OnDisconnected;
-
-    public WebSocketHelper(string url)
+    public class WebSocketHelper : IWebSocketHelper
     {
-        _uri = new Uri(url);
-    }
+        private readonly ClientWebSocket _webSocket = new();
+        private readonly Uri _uri;
 
-    public async Task ConnectAsync()
-    {
-        await _webSocket.ConnectAsync(_uri, CancellationToken.None);
-        OnConnected?.Invoke();
-        _ = ListenAsync();
-    }
+        public event Action<string>? OnMessageReceived;
+        public event Action? OnConnected;
+        public event Action? OnDisconnected;
 
-    public async Task DisconnectAsync()
-    {
-        if (_webSocket.State == WebSocketState.Open)
+        public WebSocketHelper(string url)
         {
-            await _webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closing", CancellationToken.None);
-            OnDisconnected?.Invoke();
+            _uri = new Uri(url);
         }
-    }
 
-    public async Task SendMessageAsync<T>(T message)
-    {
-        var jsonMessage = JsonHelper.Serialize(message);
-        var buffer = Encoding.UTF8.GetBytes(jsonMessage);
-        await _webSocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, CancellationToken.None);
-    }
-
-    private async Task ListenAsync()
-    {
-        var buffer = new byte[4096];
-        while (_webSocket.State == WebSocketState.Open)
+        public async Task ConnectAsync()
         {
-            var result = await _webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            if (result.MessageType == WebSocketMessageType.Close)
+            await _webSocket.ConnectAsync(_uri, CancellationToken.None);
+            OnConnected?.Invoke();
+            _ = ListenAsync();
+        }
+
+        public async Task DisconnectAsync()
+        {
+            if (_webSocket.State == WebSocketState.Open)
             {
-                await DisconnectAsync();
-                break;
+                await _webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closing", CancellationToken.None);
+                OnDisconnected?.Invoke();
             }
+        }
 
-            var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
+        public async Task SendMessageAsync<T>(T message)
+        {
+            var jsonMessage = JsonHelper.Serialize(message);
+            var buffer = Encoding.UTF8.GetBytes(jsonMessage);
+            await _webSocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, true, CancellationToken.None);
+        }
 
-            var deserializedMessage = JsonHelper.Deserialize<string>(message);
+        private async Task ListenAsync()
+        {
+            var buffer = new byte[4096];
+            while (_webSocket.State == WebSocketState.Open)
+            {
+                var result = await _webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+                if (result.MessageType == WebSocketMessageType.Close)
+                {
+                    await DisconnectAsync();
+                    break;
+                }
 
-            OnMessageReceived?.Invoke(deserializedMessage);
+                var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
+                var deserializedMessage = JsonConvert.DeserializeObject<string>(message);
+                OnMessageReceived?.Invoke(deserializedMessage);
+            }
         }
     }
 }
