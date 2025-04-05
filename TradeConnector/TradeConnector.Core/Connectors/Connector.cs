@@ -45,12 +45,12 @@ public class Connector: IConnector
         return _restClient.GetCandleSeriesAsync(symbol, periodInMin, from, to, count);
     }
 
-    public Task<PairTicker> GetNewPairTickerAsync(string pair)
+    public Task<IEnumerable<PairTicker>> GetNewPairTickerAsync(string pair)
     {
         return _restClient.GetPairTickerAsync(pair);
     }
 
-    public Task<CurrencyTicker> GetNewCurrencyTickerAsync(string currency)
+    public Task<IEnumerable<CurrencyTicker>> GetNewCurrencyTickerAsync(string currency)
     {
         return _restClient.GetCurrencyTickerAsync(currency);
     }
