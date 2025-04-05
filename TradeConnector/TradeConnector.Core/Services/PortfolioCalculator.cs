@@ -1,5 +1,4 @@
 ﻿using TradeConnector.Core.Connectors.Interfaces;
-using TradeConnector.Core.Models;
 
 namespace TradeConnector.Core.Services;
 
@@ -40,8 +39,8 @@ public class PortfolioCalculator
     private async Task<decimal> GetExchangeRateAsync(string fromCurrency, string toCurrency)
     {
         string pair = $"t{fromCurrency}{toCurrency}";
-        PairTicker ticker = await _connector.GetNewPairTickerAsync(pair);
+        var ticker = await _connector.GetNewPairTickerAsync(pair);
 
-        return ticker.LastPrice;
+        return ticker.First().LastPrice;
     }
 }
