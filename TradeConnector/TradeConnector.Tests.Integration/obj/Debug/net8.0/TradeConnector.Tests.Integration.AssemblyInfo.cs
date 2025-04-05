@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TradeConnector.Tests.Integration")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f395c4c80acd2eacc090959f4b5c18499faeea0c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3e827b3bed873a0d35324b87ceba602f7997fb0")]
 [assembly: System.Reflection.AssemblyProductAttribute("TradeConnector.Tests.Integration")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TradeConnector.Tests.Integration")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

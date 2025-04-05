@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeConnector.Core", "TradeConnector.Core\TradeConnector.Core.csproj", "{980AADC0-626E-4487-805D-4A33ECB7083A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeConnector.Tests.Integration", "TradeConnector.Tests.Integration\TradeConnector.Tests.Integration.csproj", "{EEE4D12C-6C84-48CF-8CB9-191A2C6A3637}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{980AADC0-626E-4487-805D-4A33ECB7083A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{980AADC0-626E-4487-805D-4A33ECB7083A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{980AADC0-626E-4487-805D-4A33ECB7083A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE4D12C-6C84-48CF-8CB9-191A2C6A3637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE4D12C-6C84-48CF-8CB9-191A2C6A3637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE4D12C-6C84-48CF-8CB9-191A2C6A3637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE4D12C-6C84-48CF-8CB9-191A2C6A3637}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

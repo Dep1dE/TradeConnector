@@ -10,3 +10,4 @@ D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.C
 D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\refint\TradeConnector.Core.dll
 D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\TradeConnector.Core.pdb
 D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\ref\TradeConnector.Core.dll
+D:\WorkTable\information\Projects\TradeConnector\TradeConnector\TradeConnector.Core\obj\Debug\net8.0\TradeConnector.Core.csproj.AssemblyReference.cache

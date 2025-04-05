@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TradeConnector.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42cee8a54a389e8133f145a26febbac2742711a9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3e827b3bed873a0d35324b87ceba602f7997fb0")]
 [assembly: System.Reflection.AssemblyProductAttribute("TradeConnector.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TradeConnector.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
