@@ -11,8 +11,8 @@ public interface IConnector
 
     Task<IEnumerable<Candle>> GetCandleSeriesAsync(string symbol, int periodInMin,
         DateTimeOffset? from, DateTimeOffset? to = null, long? count = 0);
-    Task<PairTicker> GetNewPairTickerAsync(string pair);
-    Task<CurrencyTicker> GetNewCurrencyTickerAsync(string currency);
+    Task<IEnumerable<PairTicker>> GetNewPairTickerAsync(string pair);
+    Task<IEnumerable<CurrencyTicker>> GetNewCurrencyTickerAsync(string currency);
 
     #endregion
 
