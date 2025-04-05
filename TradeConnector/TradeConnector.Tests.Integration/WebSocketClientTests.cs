@@ -5,6 +5,8 @@ using Newtonsoft.Json;
 using TradeConnector.Core.Infrastructure.Interfaces;
 using Xunit.Abstractions;
 
+namespace TradeConnector.Tests.Integration;
+
 public class WebSocketClientTests
 {
     private readonly Mock<IWebSocketHelper> _webSocketHelperMock;
